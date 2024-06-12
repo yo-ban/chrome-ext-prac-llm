@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat Extension Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Chat Extension Options</h1>
+    <div class="form-group">
+      <label for="api-select">API:</label>
+      <select id="api-select">
+        <option value="anthropic">Anthropic</option>
+        <option value="cohere">Cohere</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="api-key">API Key:</label>
+      <input type="text" id="api-key" />
+    </div>
+    <div class="form-group">
+      <label for="max-tokens">Max Tokens:</label>
+      <input type="number" id="max-tokens" min="128" max="4096" step="128"/>
+    </div>
+    <div class="form-group">
+      <label for="model-select">Model:</label>
+      <select id="model-select">
+        <option value="claude-3-haiku-20240307" data-api="anthropic">Claude 3 Haiku</option>
+        <option value="claude-3-sonnet-20240229" data-api="anthropic">Claude 3 Sonnet</option>
+        <option value="claude-3-opus-20240229" data-api="anthropic">Claude 3 Opus</option>
+        <option value="command-r-plus" data-api="cohere">Command R+</option>
+      </select>
+    </div>    
+    <div class="form-group">
+      <label for="language-select">Response Language:</label>
+      <select id="language-select">
+        <option value="Japanese">Japanese</option>
+        <option value="English">English</option>
+        <option value="Chinese">Chinese</option>
+        <option value="Spanish">Spanish</option>
+        <option value="French">French</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Automatically include visible text as context:</label>
+      <label class="switch">
+        <input type="checkbox" id="include-visible-text-switch" />
+        <span class="slider"></span>
+      </label>
+    </div>       
+    <div class="form-group">
+      <label>Include full context of the current site:</label>
+      <label class="switch">
+        <input type="checkbox" id="include-full-context-switch" />
+        <span class="slider"></span>
+      </label>
+    </div>    
+    <div class="form-group">
+      <label for="max-message-tokens">Max Message Length:</label>
+      <input type="number" id="max-message-tokens" min="1000" max="100000" step="1000"/>
+    </div>
+    <div class="form-group">
+      <label for="max-context-tokens">Max Context Length:</label>
+      <input type="number" id="max-context-tokens" min="1000" max="100000" step="1000"/>
+    </div>
+    <div class="form-group">
+      <label for="system-prompt">System Prompt:</label>
+      <textarea id="system-prompt" rows="5"></textarea>
+      <button id="reset-prompt-button" class="reset-btn">Reset Prompt</button>
+    </div>
+  </div>
+  <script type="module" src="options.ts"></script>
+</body>
+</html>

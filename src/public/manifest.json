@@ -1,0 +1,48 @@
+{
+  "manifest_version": 3,
+  "name": "Chat Extension",
+  "description": "Browser chat extension",
+  "version": "1.0",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "contextMenus",
+    "clipboardWrite",
+    "clipboardRead",
+    "tabs"
+  ],
+  "action": {
+    "default_icon": "icon.png"
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "css": ["content_styles.css"],
+      "js": ["content_scripts.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["chat-icon.svg"],
+      "matches": ["http://*/*", "https://*/*"]
+    },
+    {
+      "resources": ["chat.html"],
+      "matches": ["http://*/*", "https://*/*"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "options_page": "options.html",
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }  
+}
+

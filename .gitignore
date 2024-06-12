@@ -1,0 +1,6 @@
+node_modules
+dist
+.summaryignore
+.vscode
+package-lock.json
+.env
